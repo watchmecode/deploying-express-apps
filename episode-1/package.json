@@ -17,6 +17,7 @@
     "mongoose": "^4.1.7",
     "morgan": "~1.6.1",
     "nanit": "0.0.1",
+    "raygun": "0.8.0",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {

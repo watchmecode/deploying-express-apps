@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var raygun = require('raygun');
+var epa = require("epa").getEnvironment();
 
 var routes = require('./routes/index');
 
 var app = express();
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +32,19 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
+// --------------
+
+var raygunClient = new raygun.Client().init({ 
+  apiKey: epa.get("raygun")
+});
+
+app.use(raygunClient.expressHandler);
+
+process.on('uncaughtException', function(err) {
+  raygunClient.send(err);
+  console.log(err.stack);
+  process.exit(-1);
+});
 
 // development error handler
 // will print stacktrace

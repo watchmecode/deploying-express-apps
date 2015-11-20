@@ -11,7 +11,7 @@ router.use(function(req, res, next){
 
 router.use("/files", files);
 
-router.get("/", function(req, res){
+router.get("/", function(req, res, next){
   res.redirect(epa.get("www"));
 });
 
