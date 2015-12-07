@@ -1,0 +1,11 @@
+{
+  "mongodb": "mongodb://localhost/wmc-media",
+
+  "www": "http://watchmecode.net",
+
+  "s3": {
+    "bucket": "watchmecode-net"
+  },
+
+  "raygun": "U5vEtNblQ7ccbYS0q47TBg=="
+}
