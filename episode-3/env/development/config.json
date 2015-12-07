@@ -1,0 +1,11 @@
+{
+  "mongodb": "mongodb://wmc:test1234@ds027565-a0.mongolab.com:27565,ds027565-a1.mongolab.com:27565/wmc-prod?replicaSet=rs-ds027565",
+
+  "www": "http://watchmecode.net",
+
+  "s3": {
+    "bucket": "watchmecode-net"
+  },
+
+  "raygun": "IQZbo+OQWEDI9HNFJsp1hw=="
+}
