@@ -1,14 +1,19 @@
 var AWS = require("aws-sdk");
+var epa = require("epa").getEnvironment();
 
 // configure AWS
 // -------------
 
 module.exports = function(next){
-  var credentials = new AWS.SharedIniFileCredentials({
-    profile: "test-architecting-express"
-  });
+  var awsCreds = epa.get("AWS_ACCESS_KEY_ID");
 
-  AWS.config.credentials = credentials;
+  if (!awsCreds){
+    var credentials = new AWS.SharedIniFileCredentials({
+      profile: "test-architecting-express"
+    });
+
+    AWS.config.credentials = credentials;
+  };
 
   next();
 };
